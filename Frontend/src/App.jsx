@@ -43,12 +43,13 @@ export default function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
-                  {/* <Route path="/profile" element={<ProtectedRoute  ><Profile /></ProtectedRoute>} /> */}
-                  <Route path="/profile" element={<Profile />} />
-                  {/* <Route path="/upload" element={<ProtectedRoute><UploadPodcast /></ProtectedRoute>} /> */}
-                  <Route path="/upload" element={<><UploadPodcast /></>} />
+                  <Route path="/profile" element={<ProtectedRoute  ><Profile /></ProtectedRoute>} />
+                  {/* <Route path="/profile" element={<Profile />} /> */}
+                  <Route path="/upload" element={<ProtectedRoute><UploadPodcast /></ProtectedRoute>} />
+                  {/* <Route path="/upload" element={<><UploadPodcast /></>} /> */}
                   <Route path="/podcast/:id" element={<PodcastDetails />} />
                   <Route path="/request-category" element={<ProtectedRoute><CategoryRequest /></ProtectedRoute>} />
+                  {/* <Route path="/request-category" element={<><CategoryRequest /></>} /> */}
                   <Route path="/admin" element={<ProtectedRoute role="admin"><AdminDashboard /></ProtectedRoute>} />
                 </Routes>
               </Suspense>

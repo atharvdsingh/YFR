@@ -35,6 +35,7 @@ export async function requestCategory(req, res, next) {
       createdBy: req.user._id,
       status: "pending"
     });
+    console.log(cat)
 
     res.status(201).json(cat);
   } catch (err) { next(err); }
