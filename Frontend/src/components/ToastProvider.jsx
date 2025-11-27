@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const ToastContext = createContext();
 
@@ -14,5 +14,8 @@ export function ToastProvider({ children }) {
 
 // FIX: rename to match usage across the project
 export function useToast() {
-  return useContext(ToastContext);
+  return {
+    push: (msg) => toast.success(msg),
+    error: (msg) => toast.error(msg)
+  };
 }
