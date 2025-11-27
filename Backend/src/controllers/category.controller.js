@@ -1,4 +1,4 @@
-import Category from "../models/Category.js";
+import Category from "../models/category.js";
 import cloudinary from "../utils/cloudinary.js";
 import fs from "fs/promises";
 

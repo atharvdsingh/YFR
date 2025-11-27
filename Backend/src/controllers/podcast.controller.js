@@ -1,4 +1,4 @@
-import Podcast from "../models/Podcast.js";
+import Podcast from "../models/podcast.js";
 import cloudinary from "../utils/cloudinary.js";
 import fs from "fs/promises";
 
