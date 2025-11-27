@@ -15,14 +15,15 @@ export default function UploadPodcast() {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!audioFile) return toast.push("Please attach an audio file");
-    setLoading(true);
+    // if (!audioFile) return console.log("file is required")
+    // setLoading(true);
     const fd = new FormData();
     fd.append("title", title);
     fd.append("description", desc);
     fd.append("category", category);
     fd.append("audio", audioFile);
     if (cover) fd.append("cover", cover);
+    console.log(fd)
 
     try {
       const res = await fetch("/api/podcasts", {
@@ -30,12 +31,14 @@ export default function UploadPodcast() {
         headers: { Authorization: token ? `Bearer ${token}` : undefined },
         body: fd,
       });
+      console.log(res)
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Upload failed");
-      toast.push("Podcast uploaded — pending admin approval");
+      // toast.push("Podcast uploaded — pending admin approval");
       setTitle(""); setDesc(""); setCategory(""); setAudioFile(null); setCover(null);
     } catch (err) {
-      toast.push(err.message || "Upload error");
+      console.log(err)
+      // toast.push(err.message || "Upload error");
     } finally { setLoading(false); }
   };
 

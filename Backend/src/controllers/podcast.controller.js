@@ -33,7 +33,8 @@ export async function uploadPodcast(req, res, next) {
     // Upload audio to Cloudinary as "video" resource type
     const audioResp = await cloudinary.uploader.upload(audio.path, { resource_type: "video" });
     let coverResp = null;
-    if (cover) coverResp = await cloudinary.uploader.upload(cover.path);
+    console.log(audioResp)
+    if (cover) coverResp = await cloudinary.uploader.upload(cover.path); 
 
     // cleanup temporary files
     await fs.unlink(audio.path).catch(()=>{});
