@@ -1,4 +1,5 @@
 
+import podcast from "../models/podcast.js";
 import Podcast from "../models/podcast.js";
 
 import cloudinary from "../utils/cloudinary.js";
@@ -6,13 +7,8 @@ import fs from "fs/promises";
 
 export async function listPodcasts(req, res, next) {
   try {
-    const q = req.query.q || "";
-    const category = req.query.category;
-    const filter = { approved: true };
-    if (q) filter.title = { $regex: q, $options: "i" };
-    if (category) filter.category = category;
-    const podcasts = await Podcast.find(filter).populate("createdBy", "name email").limit(50).sort({ createdAt: -1 });
-    res.json(podcasts);
+ const cats = await podcast.find()
+    res.json(cats);
   } catch (err) { next(err); }
 }
 

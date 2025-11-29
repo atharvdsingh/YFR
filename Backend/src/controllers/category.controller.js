@@ -4,8 +4,11 @@ import fs from "fs/promises";
 
 export async function listCategories(req, res, next) {
   try {
-    const cats = await Category.find({ status: "approved" }).sort({ name: 1 });
+
+
+    const cats = await Category.find()
     res.json(cats);
+
   } catch (err) { next(err); }
 }
 

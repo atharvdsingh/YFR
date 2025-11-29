@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/AuthContext";
 import { ToastProvider } from "./components/ToastProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
+import CategoryDetails from "./pages/CategorieDetails";
 
 
 // Lazy-loaded pages for faster initial load
@@ -44,6 +45,8 @@ export default function App() {
                       <Categories />
                     </ProtectedRoute>
                     } />
+                        <Route path="/category/:id" element={<CategoryDetails />} />
+
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/login" element={<Login />} />
