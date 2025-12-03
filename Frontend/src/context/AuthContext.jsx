@@ -41,7 +41,8 @@ export function AuthProvider({ children }) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Login failed");
-      setToken(data.accessToken);
+      console.log(data)
+      setToken(data.token);
       setLoading(false);
       return { success: true };
     } catch (err) {
